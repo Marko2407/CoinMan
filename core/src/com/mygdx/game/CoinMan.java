@@ -5,16 +5,28 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.ArrayList;
+
 public class CoinMan extends ApplicationAdapter {
     SpriteBatch batch;
 
     Texture background;
     Texture[] man;
+
+    //man
     int manState = 0;
     int pause = 0;
     float gravity = 0.2f;
     float velocity = 0;
     int manY = 0;
+
+    //coin
+    ArrayList<Integer> coinXs = new ArrayList<>();
+    ArrayList<Integer> coinYs = new ArrayList<>();
+    Texture coin;
+    int coinCount;
+
+
 
     @Override
     public void create() {
