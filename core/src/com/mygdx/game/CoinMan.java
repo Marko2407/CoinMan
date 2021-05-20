@@ -30,6 +30,7 @@ public class CoinMan extends ApplicationAdapter {
     BitmapFont font;
 
     int score = 0;
+    int gameState =0;
 
     //coin
     ArrayList<Integer> coinXs = new ArrayList<>();
@@ -87,6 +88,9 @@ public class CoinMan extends ApplicationAdapter {
         batch.begin();
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 //bomb
+        if (gameState == 1){
+            //Game is live
+        }
 
         if (bombCount < 300){
             bombCount++;
@@ -158,6 +162,8 @@ public class CoinMan extends ApplicationAdapter {
                 Gdx.app.log("BOMB!", "Collision!");
             }
         }
+
+        font.draw(batch,String.valueOf(score), 100,200);
 
         batch.end();
     }
