@@ -26,6 +26,7 @@ public class CoinMan extends ApplicationAdapter {
     int manY = 0;
     Rectangle manRectangle;
     BitmapFont font;
+    Texture dizzy;
 
     int score = 0;
     int gameState = 0;
@@ -61,6 +62,8 @@ public class CoinMan extends ApplicationAdapter {
         coin = new Texture("coin.png");
         bomb = new Texture("bomb.png");
         random = new Random();
+
+        dizzy = new Texture("dizzy-1.png");
 
         font = new BitmapFont();
         font.setColor(Color.WHITE);
@@ -161,8 +164,11 @@ public class CoinMan extends ApplicationAdapter {
 
             }
         }
-
-            batch.draw(man[manState], Gdx.graphics.getWidth() / 2 - man[manState].getWidth() / 2, manY);
+            if (gameState == 2){
+                batch.draw(dizzy,Gdx.graphics.getWidth() / 2 - man[manState].getWidth() / 2, manY);
+            }else {
+                batch.draw(man[manState], Gdx.graphics.getWidth() / 2 - man[manState].getWidth() / 2, manY);
+            }
             manRectangle = new Rectangle(Gdx.graphics.getWidth() / 2 - man[manState].getWidth() / 2, manY, man[manState].getWidth(), man[manState].getHeight());
 
             //coin hit
